@@ -4,34 +4,35 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hangman Game</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
     <h1>Hangman Game</h1>
+    <div id="difficulty-selection">
+      <label for="difficulty">Select Difficulty:</label>
+      <select id="difficulty">
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+    </div>
+    <div id="timer">
+      <p>Time Remaining: <span id="time-remaining">60</span>s</p>
+    </div>
+    <div id="hint-section">
+      <button id="hint-btn">Get Hint</button>
+      <p id="hint"></p>
+    </div>
     <p id="word-display">_ _ _ _ _</p>
-    <div id="message"></div>
-    <div id="wrong-letters">
-      <h3>Wrong Letters:</h3>
-      <p id="wrong-letters-list"></p>
+    <input type="text" id="letter-input" maxlength="1" placeholder="Enter a letter">
+    <button id="guess-btn">Guess</button>
+    <p id="message"></p>
+    <p>Remaining Tries: <span id="remaining-tries"></span></p>
+    <div id="leaderboard">
+      <h3>Leaderboard</h3>
+      <ul id="leaderboard-list"></ul>
     </div>
-    <div id="input-section">
-      <label for="letter-input">Enter a letter:</label>
-      <input type="text" id="letter-input" maxlength="1">
-      <button id="guess-btn">Guess</button>
-    </div>
-    <div id="hangman-drawing">
-      <pre>
-+---+
-|   |
-    |
-    |
-    |
-    |
-=======
-      </pre>
-    </div>
-    <button id="restart-btn">Restart</button>
   </div>
   <script src="script.js"></script>
 </body>
