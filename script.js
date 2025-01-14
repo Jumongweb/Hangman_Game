@@ -16,6 +16,7 @@ let timerInterval;
 const wordDisplay = document.getElementById("word-display");
 const letterInput = document.getElementById("letter-input");
 const guessBtn = document.getElementById("guess-btn");
+const restartBtn = document.getElementById("restart-btn");
 const message = document.getElementById("message");
 const remainingTriesDisplay = document.getElementById("remaining-tries");
 const hintBtn = document.getElementById("hint-btn");
@@ -122,8 +123,16 @@ function renderLeaderboard() {
     .join("");
 }
 
+// Restart the game
+function restartGame() {
+  initializeGame();
+  message.textContent = "";
+  guessBtn.disabled = false;
+}
+
 // Event Listeners
 guessBtn.addEventListener("click", makeGuess);
+restartBtn.addEventListener("click", restartGame);
 hintBtn.addEventListener("click", () => {
   hintDisplay.textContent = hints[selectedWord] || "No hint available.";
   hintBtn.disabled = true;
@@ -139,4 +148,3 @@ document.addEventListener("keydown", (event) => {
 // Initialize the game on page load
 initializeGame();
 difficultySelect.addEventListener("change", initializeGame);
-
